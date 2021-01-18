@@ -5,14 +5,15 @@
     <title>Yujin's blog</title>
 </head>
 <body>
-    <h1>Yujin's blog</h1>
+    <h1>
+        <a href="{% url "root"%}">Yujin's blog</a>
+    </h1>
 
 
     {% if user.is_authenticated %}
-        {{ user }}
+        <a href="{% url "profile" %}">{{ user }}</a>
         로그아웃
     {% else %}
-        로그아웃 상황
         회원가입
          <a href="{% url "login" %}?next={{ request.path }}">로그인</a>
     {% endif %}
